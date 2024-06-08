@@ -39,18 +39,23 @@ namespace DualKawaseBlur
 
 		// Configuration
 		private readonly Material material;
-		private float blurAmount;
 		private Quality iterations;
-
+		private BackGroundBlur _backGroundBlur;
+		
 		public DualKawaseBlurPass(RenderPassEvent renderPassEvent, Material material)
 		{
 			this.renderPassEvent = renderPassEvent;
 			this.material = material;
 		}
 
-		public void ConfigureBlur(float blurRadius, Quality quality)
+		public void Setup()
 		{
-			blurAmount = blurRadius;
+			VolumeStack volumeStack = VolumeManager.instance.stack;
+			_backGroundBlur = volumeStack.GetComponent<BackGroundBlur>();
+		}
+
+		public void ConfigureBlur( Quality quality)
+		{
 			iterations = quality;
 		}
 
@@ -80,6 +85,12 @@ namespace DualKawaseBlur
 		
 		public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
 		{
+			if (_backGroundBlur == null) {
+				return;
+			}
+			
+			if(!_backGroundBlur.IsActive()) return;
+			var blurAmount = _backGroundBlur.blur.value;
 			if (Mathf.Approximately(blurAmount, 0.0f)) {
 				return;
 			}

@@ -8,7 +8,6 @@ namespace DualKawaseBlur
 	{
 		public RenderPassEvent renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
 		public DualKawaseBlurPass.Quality quality = DualKawaseBlurPass.Quality.Medium;
-		[Range(0.0f, 10.0f)] public float blurRadius = 0.0f;
 		
 		private Shader shader;
 		private Material material;
@@ -27,8 +26,10 @@ namespace DualKawaseBlur
 		
 		public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
 		{
-			pass.ConfigureBlur(blurRadius, quality);
+			pass.ConfigureBlur( quality);
+			pass.Setup(renderer.cameraColorTarget);
 			renderer.EnqueuePass(pass);
+			
 		}
 		
 		protected override void Dispose(bool disposing)
