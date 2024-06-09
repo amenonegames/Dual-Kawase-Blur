@@ -27,7 +27,7 @@ namespace DualKawaseBlur
 		public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
 		{
 			pass.ConfigureBlur( quality);
-			pass.Setup(renderer.cameraColorTarget);
+			pass.Setup();
 			renderer.EnqueuePass(pass);
 			
 		}
