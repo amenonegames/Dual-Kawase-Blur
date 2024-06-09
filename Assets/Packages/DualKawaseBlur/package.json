@@ -1,6 +1,6 @@
 {
   "name": "com.baedrick.dual-kawase-blur",
-  "version" : "1.0.2",
+  "version" : "1.0.3",
   "displayName" : "Dual Kawase Blur URP",
   "description" : "Dual Kawase Blur for URP",
   "dependencies": {
