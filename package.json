@@ -1,6 +1,6 @@
 {
   "name": "com.baedrick.dual-kawase-blur",
-  "version" : "1.0.1",
+  "version" : "1.0.2",
   "displayName" : "Dual Kawase Blur URP",
   "description" : "Dual Kawase Blur for URP",
   "dependencies": {
@@ -17,5 +17,8 @@
     "name" : "Dedrick \"Baedrick\" Koh",
     "email" : "",
     "url" : ""
-  }
+  },
+  "contributors" : [ 
+    { "name" : "Amenonegames", "email" :"","url" : "" }
+    ]
 }
