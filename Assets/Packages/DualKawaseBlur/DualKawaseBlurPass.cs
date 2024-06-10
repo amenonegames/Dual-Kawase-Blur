@@ -90,11 +90,11 @@ namespace DualKawaseBlur
 				return;
 			}
 			
-			if(!_backGroundBlur.IsActive()) return;
+			// if(!_backGroundBlur.IsActive()) return;
 			var blurAmount = _backGroundBlur.blur.value;
-			if (Mathf.Approximately(blurAmount, 0.0f)) {
-				return;
-			}
+			// if (Mathf.Approximately(blurAmount, 0.0f)) {
+			// 	return;
+			// }
 			
 			var cmd = CommandBufferPool.Get();
 			using (new ProfilingScope(cmd, new ProfilingSampler(PROFILER_TAG))) {

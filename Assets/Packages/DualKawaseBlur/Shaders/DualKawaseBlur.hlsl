@@ -87,7 +87,7 @@ V2F_DownSample Vert_DownSample(MeshData input, const uint vertexID : SV_VertexID
 
 	const float2 uv = output.uv0;
 	const float2 halfPixel = _SourceTex_TexelSize * 0.5;
-	const float2 offset = float2(1.0 + _BlurOffset, 1.0 + _BlurOffset);
+	const float2 offset = float2( _BlurOffset, _BlurOffset);
 	
 	output.uv1.xy = uv - halfPixel * offset; 
 	output.uv1.zw = uv + halfPixel * offset;
@@ -129,7 +129,7 @@ V2F_UpSample Vert_UpSample(MeshData input, const uint vertexID : SV_VertexID)
 
 	const float2 uv = output.uv0;
 	const float2 halfPixel = _SourceTex_TexelSize * 0.5;
-	const float2 offset = float2(1.0 + _BlurOffset, 1.0 + _BlurOffset);
+	const float2 offset = float2( _BlurOffset, _BlurOffset);
 	
 	output.uv1.xy = uv + float2(-halfPixel.x * 2.0, 0.0) * offset;
 	output.uv1.zw = uv + float2(-halfPixel.x, halfPixel.y) * offset;
